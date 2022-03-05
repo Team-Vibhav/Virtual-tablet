@@ -54,12 +54,5 @@ if __name__ == "__main__":
         image_fead(img_path)
     else :
         fead_video(img_path)
-        # vid = cv2.VideoCapture(2)
-        # while(True):
-        #     ret,frame = vid.read()
-        #     cv2.imshow('video',frame)
-        #     if cv2.waitKey(1) & 0xFF == ord('q'):
-        #         break
-        # vid.release()
-        # cv2.destroyAllWindows()
+
 
