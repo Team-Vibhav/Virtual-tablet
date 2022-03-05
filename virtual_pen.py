@@ -48,15 +48,16 @@ while True:
 
     # 4 if selection mode - two finger are up:
         if fingers[1] and fingers[2]:
-            xp,yp = 0,0
-            cv.rectangle(img,(x1,y1-25),(x2,y2-25),(255,0,255),cv.FILLED)
-            # print("Selection mode")
+            # xp,yp = 0,0
+            # cv.rectangle(img,(x1,y1-25),(x2,y2-25),(255,0,255),cv.FILLED)
+            print("Color Selection mode")
+            color = find_color(int(centroid[0]),int(centroid[1]),img2)
+            print(color)
 
 
     # 5 Drawing Mode
-        if centroid:
-            color = find_color(int(centroid[0]),int(centroid[1]),img2)
-            print(color)
+        if centroid and fingers[1] ==False:
+            
             # cv.circle(img,(int(centroid[0]),int(centroid[1])),10,color,cv.FILLED)
             
             # print("Drawing mode")
