@@ -29,8 +29,8 @@ while True:
 
     # Find Hands
 
-    img = detector.findHands(img)
-    lmlist = detector.findPosition(img,draw=True)
+    img = detector.findHands(img,draw=False)
+    lmlist = detector.findPosition(img,draw=False)
     if len(lmlist) != 0:
         # print(lmlist)
 
@@ -45,7 +45,7 @@ while True:
         fingers,centroid = detector.fingersUp()
         print(centroid)
         print((x1,y1))
-
+        color = (255,0,0)
     # 4 if selection mode - two finger are up:
         if fingers[1] and fingers[2]:
             # xp,yp = 0,0
@@ -54,11 +54,14 @@ while True:
             color = find_color(int(centroid[0]),int(centroid[1]),img2)
             print(color)
 
-
+        if centroid and fingers[1] == True:
+            xp,yp = int(centroid[0]),int(centroid[1])
     # 5 Drawing Mode
-        if centroid and fingers[1] ==False:
+        if centroid and fingers[1] == False:
             
-            # cv.circle(img,(int(centroid[0]),int(centroid[1])),10,color,cv.FILLED)
+            print(color)
+            color = find_color(int(centroid[0]),int(centroid[1]),img2)
+            cv.circle(img,(int(centroid[0]),int(centroid[1])),10,color,cv.FILLED)
             
             # print("Drawing mode")
             if xp == 0 and yp == 0:
